@@ -35,10 +35,26 @@ function filterOdd()
     document.getElementById('resultFilter').innerHTML = oddNumbers.map(item => `<span>${item}</span>`).join(' ');
 }
 
-    //PrimeNumbers
+function filterPrime()
+{
+    let primeNumbers = arrayNumber.filter((value) => {
+        for (var i = 2; i <= Math.sqrt(value); i++) {
+            if (value % i === 0) return false;
+        }
+        return true;
+    });
+    document.getElementById('resultFilter').innerHTML = primeNumbers.map(item => `<span>${item}</span>`).join(' ');
+}
 
-    //GrowingNumbers
-    
+
+function filterGrowing()
+{
+    let growingNumbers = arrayNumber.sort((a,b) => a - b);
+    document.getElementById('resultFilter').innerHTML = growingNumbers.map(item => `<span>${item}</span>`).join(' ');
+
+}
+
+   
     //DecreasingNumbers
     
     //RestoreNumbers
