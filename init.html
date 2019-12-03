@@ -23,13 +23,15 @@
                 placeholder="Please, add the numer here"
             >
             <p id="validate" class="mt-2"></p>
+        
             <button onclick="generateNumbers()" class=" btn btn-primary">
                 Generate
             </button>
-            
-            <h5 id=returnNumbers class="mt-3"></h5>
-           
-            <div class="row filterNumbers justify-content-center">
+
+                <h5 id="returnNumbers" class="bg-light text-dark text-center p-2 my-3"></h5>
+                                   
+            <div class="filterNumbers text-center">
+
                 <button onclick="filterEven()" 
                     class="btn btn-outline-info mr-1">
                     Even
@@ -43,19 +45,17 @@
                     Prime
                 </button>
                 <button onclick="filterGrowing()" 
-                    class="btn btn-outline-danger mr-1">
+                    class="btn btn-outline-secondary mr-1">
                     Growing
                 </button>
                 <button onclick="filterDecreasing()" 
                     class="btn btn-outline-info mr-1">
                     Decreasing
                 </button>
-                <button onclick="filterRestore()" 
-                    class="btn btn-outline-dark mr-1">
-                    Restore
-                </button>
+
+                <h5 id="feedback" class="my-3 text-danger"></h5>
+                <h5 id="resultFilter" class="mt-2 alert alert-info my-3"></h5>
                 
-                <h5 id="resultFilter" class="mt-3"></h5>
             
             </div>
         </div>

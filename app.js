@@ -14,8 +14,8 @@ function generateNumbers()
     arrayNumber = [];
 
     while(arrayNumber.length < number){
-        let r = Math.floor(Math.random() * 50000) + 1;        
-        if (arrayNumber.indexOf(r) === -1) arrayNumber.push(r);
+        let i = Math.floor(Math.random() * 50000) + 1;        
+        if (arrayNumber.indexOf(i) === -1) arrayNumber.push(i);
         
     }
 
@@ -40,24 +40,25 @@ function filterPrime()
     let primeNumbers = arrayNumber.filter((value) => {
         for (var i = 2; i <= Math.sqrt(value); i++) {
             if (value % i === 0) return false;
+            document.getElementById("feedback").innerHTML = "No have prime numbers in the list";
+            return;
         }
         return true;
     });
     document.getElementById('resultFilter').innerHTML = primeNumbers.map(item => `<span>${item}</span>`).join(' ');
 }
 
-
 function filterGrowing()
 {
     let growingNumbers = arrayNumber.sort((a,b) => a - b);
     document.getElementById('resultFilter').innerHTML = growingNumbers.map(item => `<span>${item}</span>`).join(' ');
-
 }
 
-   
-    //DecreasingNumbers
-    
-    //RestoreNumbers
+function filterDecreasing()
+{
+    let decreasingNumbers = arrayNumber.sort((a,b) => b - a);
+    document.getElementById('resultFilter').innerHTML = decreasingNumbers.map(item => `<span>${item}</span>`).join(' ');
+}
 
 function validateNumber(number)
 {
