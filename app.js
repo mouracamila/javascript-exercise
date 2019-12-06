@@ -16,23 +16,36 @@ function generateNumbers()
     while(arrayNumber.length < number){
         let i = Math.floor(Math.random() * 50000) + 1;        
         if (arrayNumber.indexOf(i) === -1) arrayNumber.push(i);
-        
     }
 
-    document.getElementById('returnNumbers').innerHTML = arrayNumber.map(item => `<span>${item}</span>`).join(' ');
-    console.log(arrayNumber);
+    let text = arrayNumber.map(item => `<span>${item}</span>`).join(' ');
+    showList(text, 'alert-warning');
 }
 
 function filterEven()
 {
     let evenNumbers = arrayNumber.filter(value => value % 2 === 0);
-    document.getElementById('resultFilter').innerHTML = evenNumbers.map(item => `<span>${item}</span>`).join(' ');
+
+    let text = evenNumbers.map(item => `<span>${item}</span>`).join(' ');
+    showResult(text, 'alert-success');
+
+    if (evenNumbers.length === 0) {
+        showResult("No have even numbers in this list", 'alert-danger');
+    }
+    return true;
 }
 
 function filterOdd()
 {
-    let oddNumbers = arrayNumber.filter(value => value % 2 === 1); 
-    document.getElementById('resultFilter').innerHTML = oddNumbers.map(item => `<span>${item}</span>`).join(' ');
+    let oddNumbers = arrayNumber.filter(value => value % 2 === 1);
+
+    let text = oddNumbers.map(item => `<span>${item}</span>`).join(' ');
+    showResult(text, 'alert-success');
+    
+    if (oddNumbers.length === 0) {
+        showResult("No have odd numbers in this list", 'alert-danger');
+    }
+    return true;
 }
 
 function filterPrime()
@@ -40,24 +53,31 @@ function filterPrime()
     let primeNumbers = arrayNumber.filter((value) => {
         for (var i = 2; i <= Math.sqrt(value); i++) {
             if (value % i === 0) return false;
-            document.getElementById("feedback").innerHTML = "No have prime numbers in the list";
-            return;
         }
         return true;
     });
-    document.getElementById('resultFilter').innerHTML = primeNumbers.map(item => `<span>${item}</span>`).join(' ');
+
+    if (primeNumbers.length === 0) {
+        showResult("No have prime numbers in this list", 'alert-danger');
+        return;
+    }
+
+    let text = primeNumbers.map(item => `<span>${item}</span>`).join(' ');
+    showResult(text, 'alert-success');
 }
 
 function filterGrowing()
 {
     let growingNumbers = arrayNumber.sort((a,b) => a - b);
-    document.getElementById('resultFilter').innerHTML = growingNumbers.map(item => `<span>${item}</span>`).join(' ');
+    let text = growingNumbers.map(item => `<span>${item}</span>`).join(' ');
+    showResult(text, 'alert-success');
 }
 
 function filterDecreasing()
 {
     let decreasingNumbers = arrayNumber.sort((a,b) => b - a);
-    document.getElementById('resultFilter').innerHTML = decreasingNumbers.map(item => `<span>${item}</span>`).join(' ');
+    let text = decreasingNumbers.map(item => `<span>${item}</span>`).join(' ');
+    showResult(text, 'alert-success');
 }
 
 function validateNumber(number)
@@ -65,3 +85,12 @@ function validateNumber(number)
     return (isNaN(number) || number < 5 || number > 100);
 }
 
+function showResult(text, type)
+{
+    document.getElementById('resultFilter').innerHTML = `<div class="alert ${type}">${text}</div>`;
+}
+
+function showList(text, type)
+{
+    document.getElementById('returnNumbers').innerHTML = `<div class="alert ${type}">${text}</div>`;
+}
