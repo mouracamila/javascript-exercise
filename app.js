@@ -20,6 +20,8 @@ function generateNumbers()
 
     let text = arrayNumber.map(item => `<span>${item}</span>`).join(' ');
     showList(text, 'alert-warning');
+    
+    document.querySelectorAll('.btn-filter').forEach(b => b.disabled = false);
 }
 
 function filterEven()

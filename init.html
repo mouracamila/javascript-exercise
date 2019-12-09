@@ -12,7 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="card p-4 mt-5" style="width: 40rem;">
+    <div class="card p-4 mt-5 mx-auto" style="width: 40rem;">
         <div class="card-body">
             <h1 class="mb-5 text-center">Number gerator</h1>
             <label for="numbers">Add an integer between 5 and 100.</label>
@@ -30,26 +30,31 @@
 
                 <div id="returnNumbers" class="mt-2 my-3 text-center h5"></div>
                                    
-            <div class="filterNumbers text-center">
+            <div class="filterNumbers text-center mx-0">
 
                 <button onclick="filterEven()" 
-                    class="btn btn-outline-info px-4 mr-1">
+                    class="btn btn-filter btn-outline-info px-4 mr-1"
+                    disabled>
                     Even
                 </button>
                 <button onclick="filterOdd()" 
-                    class="btn btn-outline-secondary px-4 mr-1">
+                    class="btn btn-filter btn-outline-secondary px-4 mr-1"
+                    disabled>
                     Odd
                 </button>
                 <button onclick="filterPrime()" 
-                    class="btn btn-outline-info px-4 mr-1">
+                    class="btn btn-filter btn-outline-info px-4 mr-1"
+                    disabled>
                     Prime
                 </button>
                 <button onclick="filterGrowing()" 
-                    class="btn btn-outline-secondary px-4 mr-1">
+                    class="btn btn-filter btn-outline-secondary px-4 mr-1"
+                    disabled>
                     Growing
                 </button>
                 <button onclick="filterDecreasing()" 
-                    class="btn btn-outline-info px-4 mr-1">
+                    class="btn btn-filter btn-outline-info px-4 mr-1"
+                    disabled>
                     Decreasing
                 </button>
                 
