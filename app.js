@@ -5,7 +5,6 @@ function generateNumbers()
 {
     let number = document.getElementById("numbers").value;
 
-    // check if input number is valid
     if (validateNumber(number)) {
         document.getElementById("validate").innerHTML = "This is not valid";
         return;
@@ -18,7 +17,25 @@ function generateNumbers()
         if (arrayNumber.indexOf(i) === -1) arrayNumber.push(i);
     }
 
-    let text = arrayNumber.map(item => `<span>${item}</span>`).join(' ');
+    let text = arrayNumber.map((value, idx, arr) => {
+
+        let textTip = `This number is ${value % 2 === 0 ? 'even' : 'odd'}`;
+
+        if (idx != 0) {
+            textTip += ` - The previous value is: ${arr[idx-1]}`;
+        }
+
+        if (idx != number+1) {
+            textTip += ` - The after value is: ${arr[idx+1]}`
+        }
+
+         console.log(arr[idx+1]);
+        
+        return `<span 
+            data-toggle="tooltip" 
+            data-placement="top" 
+            title="${textTip}">${value}</span>`
+    }).join(' ');
     showList(text, 'alert-warning');
     
     document.querySelectorAll('.btn-filter').forEach(b => b.disabled = false);
