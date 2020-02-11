@@ -1,6 +1,6 @@
 # Random Array
 
-*Portuguese right down.
+*Português logo a baixo.
 
 1. Create a form to ask the user for an integer value from 5 to 100.
 
