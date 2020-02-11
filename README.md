@@ -38,8 +38,6 @@
 
 ------------- 
 
-#Matriz aleatória
-
 1. Crie um formulário para solicitar ao usuário um valor inteiro de 5 a 100.
 
 2. Gere uma lista de números aleatórios que deve ter a quantidade de itens informados pelo usuário por meio do formulário. A lista deve serguir os seguintes critérios:
